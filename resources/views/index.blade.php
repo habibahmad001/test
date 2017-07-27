@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <title>Zipper - Responsive HTML Template</title>
 <!--
 
@@ -137,9 +139,13 @@ http://www.tooplate.com/view/2084-zipper
                 <div class="tm-page-content-width">
                     <div class="tm-bg-black-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact tm-content-box  tm-content-box-right">
                         <h2 class="tm-section-title">Contact Us</h2>
-                        
+                        <?php //if($resmsg) { ?>
+                        <div id="msg"></div>
+                        <?php //} ?>
                         <!-- contact form -->
-                        <form action="index.html" method="post" class="tm-contact-form">
+                        <form action="/register" method="post" class="tm-contact-form" enctype="multipart/form-data">
+
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">
                                 <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Your Name"  required/>

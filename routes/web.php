@@ -19,3 +19,9 @@ Route::get('test', [
     'uses' => 'test@index',
     'as' => 'test'
 ]);
+
+Route::post('/register', 'RegisterController@postRegister');
+
+Route::get('/abcd', 'abc@index');
+
+Route::get('/userresult', 'RegisterController@result');
